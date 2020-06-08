@@ -30,6 +30,10 @@ exports = module.exports = passport => {
     if (!passport) throw new Error('Passport auth must be set.');
 
     router
+        .route('/ping')
+        .get((_, res) => res.status(200).end());
+
+    router
         .route(loginUrl)
         .get((req, res) => {
             if (req.query.logo) {
